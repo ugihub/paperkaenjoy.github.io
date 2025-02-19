@@ -8,7 +8,6 @@ renderHTML('content', 'html/home.html', afterContentLoad);
 
 function afterContentLoad() {
     let video = document.getElementById("myVideo");
-    video.setAttribute("controls", "true");
     video.setAttribute("autoplay", "true");
     video.muted = true;
     video.play(); // Memaksa video untuk diputar
