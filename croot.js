@@ -1,4 +1,4 @@
-import {addCSS,renderHTML} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.3/element.js";
+import {addCSS,renderHTML,onClick} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.3/element.js";
 await addCSS("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css");
 
 
