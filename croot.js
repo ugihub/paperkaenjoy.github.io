@@ -9,3 +9,8 @@ Swal.fire('Hehe', 'Kalem bray can hudang keneh', 'info');//success,warning,info,
 
 await addCSS("./css/main.css")
 
+document.addEventListener("DOMContentLoaded", function() {
+    let video = document.getElementById("myVideo");
+    video.setAttribute("controls", "true");
+    video.setAttribute("autoplay", "true");
+});
