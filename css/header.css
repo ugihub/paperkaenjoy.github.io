@@ -1,48 +1,18 @@
-/* HEADER */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    padding: 30px 5px;
     background: rgba(0, 0, 0, 0.5);
     color: white;
     width: 100%;
     position: sticky;
+    /*position: absolute;*/
     top: 0;
     left: 0;
-    z-index: 1000;
 }
 
-/* LOGO */
-header .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-header .logo img {
-    height: 60px;
-}
-
-/* MENU DESKTOP */
-header .menu {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-}
-header .menu li {
-    margin: 0 10px;
-}
-header .menu a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: color 0.3s ease-in-out;
-}
-header .menu a:hover {
-    color: #ddd;
-}
-
-/* BURGER MENU (Mobile) */
+/* Default: Sembunyikan burger menu di desktop */
 header .burger-menu {
     display: none;
     font-size: 28px;
@@ -50,22 +20,164 @@ header .burger-menu {
     border: none;
     color: white;
     cursor: pointer;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 1100;
 }
 
-/* ACTIONS (TOMBOL KONTAK & BUILD) */
+header .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+header .logo img {
+    height: 70px;
+}
+header .menu {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+header .menu li {
+    margin: 0 15px;
+    position: relative;
+}
+header .menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+header .menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease-in-out;
+}
+header .menu a:hover::after {
+    width: 100%;
+}
+
+/* Menu Mobile */
+header .menu-mobile {
+    display: none; /* Default: Sembunyi */
+    flex-direction: column;
+    max-width: 400px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: white;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+}
+
+header .menu-mobile .close-btn {
+    font-size: 18px;
+    font-weight: 500;
+    color: #444;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+header .menu-mobile .close-btn span {
+    margin-left: 8px;
+}
+
+header .menu-mobile .menu a {
+    display: block;
+    font-size: 22px;
+    font-weight: 500;
+    color: #444;
+    text-decoration: none;
+    margin: 10px 0;
+}
+
+header .menu-mobile .menu a:hover {
+    color: #000;
+}
+
+header .menu-mobile .menu-divider {
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+header .menu-mobile .contact-info {
+    font-size: 16px;
+    color: #777;
+    margin-top: 20px;
+}
+
+header .menu-mobile .contact-info a {
+    color: #444;
+    text-decoration: none;
+}
+
+header .menu-mobile .contact-info a:hover {
+    text-decoration: underline;
+}
+
 header .actions {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-left: auto;
 }
 header .actions .contact {
-    background: transparent;
+    position: relative;
+    padding: 8px 20px;
     border: 2px solid white;
+    background: transparent;
     color: white;
-    padding: 8px 15px;
-    border-radius: 20px;
     cursor: pointer;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+}
+header .actions .contact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.3s ease-in-out;
+    z-index: -1;
+}
+header .actions .contact:hover::before {
+    left: 0;
+}
+header .actions .contact:hover {
+    padding-left: 24px;
+    padding-right: 32px;
+    border-left: 4px solid white;
+}
+header .actions .contact::after {
+    content: "→";
+    position: absolute;
+    right: -20px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, right 0.3s ease-in-out;
+}
+header .actions .contact:hover::after {
+    opacity: 1;
+    right: 10px;
 }
 header .actions .build {
     background: white;
@@ -74,82 +186,93 @@ header .actions .build {
     display: flex;
     align-items: center;
     padding: 8px 15px;
+    position: relative;
     border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+header .actions .build::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease-in-out;
+}
+header .actions .build:hover::before {
+    left: 0;
+}
+header .actions .build:hover {
+    transform: scale(1.05);
 }
 header .actions .build img {
     width: 20px;
     margin-right: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+header .actions .build:hover img {
+    transform: scale(1.1);
 }
 
-/* MENU MOBILE */
-header .menu-mobile {
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 250px;
-    height: 100vh;
-    background: white;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    transition: left 0.3s ease-in-out;
-    z-index: 1200;
-}
-header .menu-mobile.active {
-    left: 0;
-}
-header .menu-mobile .close-btn {
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-    margin-bottom: 20px;
-}
-header .menu-mobile .menu a {
-    display: block;
-    font-size: 18px;
-    font-weight: 500;
-    color: #444;
-    text-decoration: none;
-    margin: 10px 0;
-}
-header .menu-mobile .menu a:hover {
-    color: black;
-}
-header .menu-mobile .menu-divider {
-    border-top: 1px solid #ccc;
-    margin: 20px 0;
-}
-header .menu-mobile .contact-info {
-    font-size: 14px;
-    color: #777;
-    margin-top: 20px;
-}
-header .menu-mobile .contact-info a {
-    color: #444;
-    text-decoration: none;
-}
-header .menu-mobile .contact-info a:hover {
-    text-decoration: underline;
-}
 
-/* RESPONSIVE UNTUK MOBILE */
 @media (max-width: 768px) {
     header {
-        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    /* TAMPILKAN BURGER MENU DI MOBILE */
     header .burger-menu {
-        display: block;
+        display: block; /* Tampilkan burger menu */
     }
 
-    /* SEMBUNYIKAN MENU DESKTOP DI MOBILE */
     header .menu {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255,0.9);
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+        padding-top: 80px;
+        transition: left 0.3s ease-in-out;
+        z-index: 1000;
     }
 
-    /* SEMBUNYIKAN "BUILD" BUTTON DI MOBILE */
+    header .menu.active {
+        left: 0;
+    }
+
+    header .menu li {
+        margin: 15px 0;
+        text-align: left;
+        padding-left: 20px;
+    }
+    /* Styling Link Menu */
+    header .menu a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        display: block;
+        padding: 10px;
+        transition: background 0.3s ease-in-out;
+    }
+
+    /* Hover Effect */
+    header .menu a:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+    }
+
+    header .actions {
+        margin-left: auto;
+        gap: 5px;
+    }
     header .actions .build {
         display: none;
     }
