@@ -12,24 +12,12 @@ renderHTML('main', 'html/main/home.html', afterContentLoad);
 
 function afterHeaderLoad(){
     console.log("header loadewr");
-    const burger = document.querySelector("header .burger-menu");
-    //const menu = document.querySelector("header .menu-mobile");
-    var menu = document.getElementById("mobileMenu");
+    onClick('burger-menu',openMobileMenu);
+}
 
-    burger.addEventListener("click", function() {
-        console.log("burger di klik");
-        if (menu.style.display === "block") {
-            menu.style.display = "none";
-        } else {
-            menu.style.display = "block";
-        }
-    });
-    // Klik di luar menu untuk menutupnya
-    document.addEventListener("click", function(event) {
-        if (!menu.contains(event.target) && !burger.contains(event.target)) {
-            menu.classList.remove("active");
-        }
-    });
+function openMobileMenu(element){
+    const menu = document.getElementById("mobileMenu");
+    menu.style.display = "block";
 }
 
 function afterContentLoad() {
