@@ -6,7 +6,12 @@ await addCSS("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.
 await addCSS("./css/header.css")
 await addCSS("./css/body.css")
 
-renderHTML('main', 'html/home.html', afterContentLoad);
+renderHTML('header', 'html/header/home.html', afterHeaderLoad);
+renderHTML('main', 'html/main/home.html', afterContentLoad);
+
+function afterHeaderLoad(){
+    console.log("header loadewr");
+}
 
 function afterContentLoad() {
     let video = document.getElementById("myVideo");
