@@ -1,38 +1,28 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
+main {
+    width: 100%; /* Lebar penuh */
+    max-width: 1200px; /* Maksimal lebar agar konten tidak terlalu besar */
+    margin: 0px auto 0; /* Beri margin atas agar tidak tertutup header */
+    padding: 20px; /* Ruang dalam */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    background-color: black;
-}
-video {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
 }
 
-/* Unmute button */
-#unmuteButton {
-    position: fixed;
-    bottom: 75px;
-    right: 20px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: rgba(0, 0, 0, 0.5); /* Transparansi 50% */
-    color: white;
-    border: 1px solid white; /* Batas putih untuk tampilan lebih baik */
-    border-radius: 5px; /* Membulatkan sudut */
-    cursor: pointer;
-    z-index: 2;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Efek hover */
+main img {
+    width: 100%; /* Lebar penuh */
+    max-width: 100vw; /* Maksimal sesuai lebar layar */
+    height: auto; /* Jaga proporsi gambar */
+    object-fit: cover; /* Menyesuaikan gambar agar tetap proporsional */
+    border-radius: 10px; /* Opsional: Beri sudut tumpul agar lebih estetis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opsional: Efek bayangan */
 }
 
-/* Hover effect */
-#unmuteButton:hover {
-    background-color: rgba(0, 0, 0, 0.7); /* Sedikit lebih gelap saat hover */
-    color: #f0f0f0; /* Sedikit lebih terang saat hover */
+@media (max-width: 768px) {
+    main {
+        padding: 0px;
+    }
+
+    main img {
+        border-radius: 5px; /* Sudut lebih kecil di layar kecil */
+    }
 }
