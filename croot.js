@@ -18,6 +18,12 @@ function afterHeaderLoad(){
     burger.addEventListener("click", function() {
         menu.classList.toggle("active");
     });
+    // Klik di luar menu untuk menutupnya
+    document.addEventListener("click", function(event) {
+        if (!menu.contains(event.target) && !burger.contains(event.target)) {
+            menu.classList.remove("active");
+        }
+    });
 }
 
 function afterContentLoad() {
