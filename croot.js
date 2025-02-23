@@ -27,16 +27,7 @@ function afterHeaderLoad(){
 }
 
 function afterContentLoad() {
-    let video = document.getElementById("myVideo");
-    video.setAttribute("autoplay", "true");
-    video.muted = true;
-    video.play(); // Memaksa video untuk diputar
-    onClick('unmuteButton', toggleMute);
+    console.log("conten loaded");
+
 }
 
-function toggleMute(button) {
-    console.log("Tombol diklik!");
-    let video = document.getElementById("myVideo");
-    video.muted = !video.muted;
-    button.textContent = video.muted ? "Unmute" : "Mute";
-}
