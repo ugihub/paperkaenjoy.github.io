@@ -27,11 +27,12 @@ function afterHeaderLoad(){
 }
 
 function afterContentLoad() {
-    let video = document.getElementById("myVideo");
+    console.log("content loaded");
+/*     let video = document.getElementById("myVideo");
     video.setAttribute("autoplay", "true");
     video.muted = true;
     video.play(); // Memaksa video untuk diputar
-    onClick('unmuteButton', toggleMute);
+    onClick('unmuteButton', toggleMute); */
 }
 
 function toggleMute(button) {
