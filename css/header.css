@@ -68,8 +68,66 @@ header .menu a:hover::after {
     width: 100%;
 }
 
-header .contact-info {
-    display: none;
+/* Menu Mobile */
+header .menu-mobile {
+    display: none; /* Default: Sembunyi */
+    flex-direction: column;
+    max-width: 400px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: white;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+}
+
+header .menu-mobile .close-btn {
+    font-size: 18px;
+    font-weight: 500;
+    color: #444;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+header .menu-mobile .close-btn span {
+    margin-left: 8px;
+}
+
+header .menu-mobile .menu a {
+    display: block;
+    font-size: 22px;
+    font-weight: 500;
+    color: #444;
+    text-decoration: none;
+    margin: 10px 0;
+}
+
+header .menu-mobile .menu a:hover {
+    color: #000;
+}
+
+header .menu-mobile .menu-divider {
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+header .menu-mobile .contact-info {
+    font-size: 16px;
+    color: #777;
+    margin-top: 20px;
+}
+
+header .menu-mobile .contact-info a {
+    color: #444;
+    text-decoration: none;
+}
+
+header .menu-mobile .contact-info a:hover {
+    text-decoration: underline;
 }
 
 header .actions {
