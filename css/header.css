@@ -11,6 +11,22 @@ header {
     top: 0;
     left: 0;
 }
+
+/* Default: Sembunyikan burger menu di desktop */
+header .burger-menu {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1100;
+}
+
 header .logo {
     display: flex;
     justify-content: center;
@@ -25,6 +41,7 @@ header .logo img {
 header .menu {
     display: flex;
     list-style: none;
+    gap: 15px;
 }
 header .menu li {
     margin: 0 15px;
@@ -143,9 +160,32 @@ header .actions .build:hover img {
         justify-content: space-between;
         align-items: center;
     }
+
+    header .burger-menu {
+        display: block; /* Tampilkan burger menu */
+    }
+
     header .menu {
         display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 0;
+        z-index: 1000;
     }
+
+    header .menu.active {
+        display: flex; /* Tampilkan menu saat aktif */
+    }
+
+    header .menu li {
+        margin: 10px 0;
+    }
+
     header .actions {
         margin-left: auto;
         gap: 5px;
