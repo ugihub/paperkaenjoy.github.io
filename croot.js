@@ -5,7 +5,7 @@ await addCSS("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css")
 await addCSS("./css/header.css")
 await addCSS("./css/body.css")
 
-renderHTML('content', 'html/home.html', afterContentLoad);
+renderHTML('main', 'html/home.html', afterContentLoad);
 
 function afterContentLoad() {
     let video = document.getElementById("myVideo");
