@@ -67,6 +67,11 @@ header .menu a::after {
 header .menu a:hover::after {
     width: 100%;
 }
+
+header .contact-info {
+    display: none;
+}
+
 header .actions {
     display: flex;
     align-items: center;
