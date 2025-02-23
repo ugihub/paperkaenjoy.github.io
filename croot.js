@@ -1,4 +1,4 @@
-import {addCSS,renderHTML,onClick} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.3/element.js";
+import {addCSS,renderHTML,onClick,container} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.3/element.js";
 await addCSS("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css");
 
 
@@ -16,8 +16,7 @@ function afterHeaderLoad(){
 }
 
 function openMobileMenu(element){
-    const menu = document.getElementById("mobileMenu");
-    menu.style.display = "block";
+    container('mobileMenu').style.display = "block";
 }
 
 function afterContentLoad() {
