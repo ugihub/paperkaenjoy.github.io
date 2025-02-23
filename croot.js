@@ -1,4 +1,4 @@
-import {addCSS,renderHTML,onClick,container} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.3/element.js";
+import {addCSS,renderHTML,onClick} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.3/element.js";
 await addCSS("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css");
 
 
@@ -11,18 +11,19 @@ renderHTML('header', 'html/header/home.html', afterHeaderLoad);
 renderHTML('main', 'html/main/home.html', afterContentLoad);
 
 function afterHeaderLoad(){
-    onClick("burger-menu",actionBurgerMenu);
-    onClick("menu",actionMenu);
-    // Klik di luar menu untuk menutupnya
-}
+    console.log("header loadewr");
+    const burger = document.querySelector("header .burger-menu");
+    const menu = document.querySelector("header .menu");
 
-function actionBurgerMenu(){
-    container('menu').classList.toggle("active");
-}
-function actionMenu(element){
-    if (!container('menu').contains(element) && !container('burger-menu').contains(element)) {
-        container('menu').classList.remove("active");
-    }
+    burger.addEventListener("click", function() {
+        menu.classList.toggle("active");
+    });
+    // Klik di luar menu untuk menutupnya
+    document.addEventListener("click", function(event) {
+        if (!menu.contains(event.target) && !burger.contains(event.target)) {
+            menu.classList.remove("active");
+        }
+    });
 }
 
 function afterContentLoad() {
