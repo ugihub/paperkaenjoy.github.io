@@ -17,6 +17,7 @@ function afterHeaderLoad(){
 
     burger.addEventListener("click", function() {
         menu.classList.toggle("active");
+        console.log("burger di klik");
     });
     // Klik di luar menu untuk menutupnya
     document.addEventListener("click", function(event) {
