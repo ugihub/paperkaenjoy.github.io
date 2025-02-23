@@ -171,9 +171,9 @@ header .actions .build:hover img {
         position: fixed;
         top: 0;
         left: -100%;
-        width: 70%;
+        width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.9);
+        background: rgba(255, 255, 255,0.9);
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
         padding-top: 80px;
         transition: left 0.3s ease-in-out;
