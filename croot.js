@@ -13,11 +13,16 @@ renderHTML('main', 'html/main/home.html', afterContentLoad);
 function afterHeaderLoad(){
     console.log("header loadewr");
     const burger = document.querySelector("header .burger-menu");
-    const menu = document.querySelector("header .menu-mobile");
+    //const menu = document.querySelector("header .menu-mobile");
+    var menu = document.getElementById("mobileMenu");
 
     burger.addEventListener("click", function() {
-        menu.classList.toggle("active");
         console.log("burger di klik");
+        if (menu.style.display === "block") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "block";
+        }
     });
     // Klik di luar menu untuk menutupnya
     document.addEventListener("click", function(event) {
