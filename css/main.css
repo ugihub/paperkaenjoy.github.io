@@ -1,7 +1,8 @@
 main {
     position: relative;
     max-width: 100%;
-    overflow: hidden;
+    overflow: visible;
+    z-index: 1; /* Lebih rendah dari header */
 }
 main .slider {
     display: flex;
@@ -14,7 +15,7 @@ main .slide {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow: visible;
 }
 main .slide img {
     width: 100%;
