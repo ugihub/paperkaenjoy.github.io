@@ -11,21 +11,14 @@ renderHTML('header', 'html/header/home.html', afterHeaderLoad);
 renderHTML('main', 'html/main/home.html', afterContentLoad);
 
 function afterHeaderLoad(){
+    console.log("header loadewr");
     const burger = document.querySelector("header .burger-menu");
     const menu = document.querySelector("header .menu");
-    const closeBtn = document.querySelector("header .close-menu");
 
-    // Buka menu saat burger diklik
     burger.addEventListener("click", function() {
-        menu.classList.add("active");
+        menu.classList.toggle("active");
     });
-
-    // Tutup menu saat tombol close diklik
-    closeBtn.addEventListener("click", function() {
-        menu.classList.remove("active");
-    });
-
-    // Tutup menu jika klik di luar menu
+    // Klik di luar menu untuk menutupnya
     document.addEventListener("click", function(event) {
         if (!menu.contains(event.target) && !burger.contains(event.target)) {
             menu.classList.remove("active");
@@ -34,7 +27,16 @@ function afterHeaderLoad(){
 }
 
 function afterContentLoad() {
-    console.log("conten loaded");
-
+    let video = document.getElementById("myVideo");
+    video.setAttribute("autoplay", "true");
+    video.muted = true;
+    video.play(); // Memaksa video untuk diputar
+    onClick('unmuteButton', toggleMute);
 }
 
+function toggleMute(button) {
+    console.log("Tombol diklik!");
+    let video = document.getElementById("myVideo");
+    video.muted = !video.muted;
+    button.textContent = video.muted ? "Unmute" : "Mute";
+}
