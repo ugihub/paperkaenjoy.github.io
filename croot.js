@@ -2,7 +2,8 @@ import {addCSS,renderHTML,onClick} from "https://cdn.jsdelivr.net/gh/jscroot/lib
 await addCSS("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css");
 
 
-await addCSS("./css/main.css")
+await addCSS("./css/header.css")
+await addCSS("./css/body.css")
 
 renderHTML('content', 'html/home.html', afterContentLoad);
 
