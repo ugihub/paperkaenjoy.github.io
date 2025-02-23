@@ -13,10 +13,14 @@ renderHTML('main', 'html/main/home.html', afterContentLoad);
 function afterHeaderLoad(){
     console.log("header loadewr");
     onClick('burger-menu',openMobileMenu);
+    onClick('close-btn',closeMobileMenu);
 }
 
 function openMobileMenu(element){
     container('mobileMenu').style.display = "block";
+}
+function closeMobileMenu(element){
+    container('mobileMenu').style.display = "none";
 }
 
 function afterContentLoad() {
