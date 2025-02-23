@@ -2,6 +2,7 @@ import {addCSS,renderHTML,onClick} from "https://cdn.jsdelivr.net/gh/jscroot/lib
 await addCSS("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css");
 
 
+await addCSS("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css")
 await addCSS("./css/header.css")
 await addCSS("./css/body.css")
 
