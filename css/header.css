@@ -15,13 +15,13 @@ header {
 /* Default: Sembunyikan burger menu di desktop */
 header .burger-menu {
     display: none;
-    font-size: 24px;
+    font-size: 28px;
     background: none;
     border: none;
     color: white;
     cursor: pointer;
     position: absolute;
-    left: 10px;
+    left: 15px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 1100;
@@ -166,24 +166,44 @@ header .actions .build:hover img {
     }
 
     header .menu {
-        display: none;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.9);
+        display: flex;
         flex-direction: column;
-        text-align: center;
-        padding: 20px 0;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 70%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+        padding-top: 80px;
+        transition: left 0.3s ease-in-out;
         z-index: 1000;
     }
 
     header .menu.active {
-        display: flex; /* Tampilkan menu saat aktif */
+        left: 0;
     }
 
     header .menu li {
-        margin: 10px 0;
+        margin: 15px 0;
+        text-align: left;
+        padding-left: 20px;
+    }
+    /* Styling Link Menu */
+    header .menu a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        display: block;
+        padding: 10px;
+        transition: background 0.3s ease-in-out;
+    }
+
+    /* Hover Effect */
+    header .menu a:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
     }
 
     header .actions {
