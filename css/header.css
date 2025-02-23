@@ -38,23 +38,23 @@ header .logo {
 header .logo img {
     height: 70px;
 }
-header .menu {
+header ul.menu {
     display: flex;
     list-style: none;
     gap: 15px;
 }
-header .menu li {
+header ul.menu li {
     margin: 0 15px;
     position: relative;
 }
-header .menu a {
+header ul.menu a {
     text-decoration: none;
     color: white;
     font-weight: bold;
     position: relative;
     display: inline-block;
 }
-header .menu a::after {
+header ul.menu a::after {
     content: "";
     position: absolute;
     left: 0;
@@ -64,7 +64,7 @@ header .menu a::after {
     background: white;
     transition: width 0.3s ease-in-out;
 }
-header .menu a:hover::after {
+header ul.menu a:hover::after {
     width: 100%;
 }
 
@@ -228,7 +228,7 @@ header .actions .build:hover img {
         display: block; /* Tampilkan burger menu */
     }
 
-    header .menu {
+    header ul.menu {
         display: flex;
         flex-direction: column;
         position: fixed;
@@ -243,17 +243,17 @@ header .actions .build:hover img {
         z-index: 1000;
     }
 
-    header .menu.active {
+    header ul.menu.active {
         left: 0;
     }
 
-    header .menu li {
+    header ul.menu li {
         margin: 15px 0;
         text-align: left;
         padding-left: 20px;
     }
     /* Styling Link Menu */
-    header .menu a {
+    header ul.menu a {
         color: rgb(0, 0, 0);
         text-decoration: none;
         font-size: 18px;
@@ -264,7 +264,7 @@ header .actions .build:hover img {
     }
 
     /* Hover Effect */
-    header .menu a:hover {
+    header ul.menu a:hover {
         background: rgba(255, 255, 255, 0.2);
         border-radius: 5px;
     }
