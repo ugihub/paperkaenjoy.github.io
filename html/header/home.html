@@ -1,27 +1,34 @@
-<button class="burger-menu" aria-label="Open menu">
+ <!-- Tombol Burger Menu (Mobile) -->
+ <button class="burger-menu" aria-label="Open menu" onclick="toggleMenu()">
     ☰
 </button>
+
+<!-- Logo -->
 <div class="logo">
     <img src="/assets/img/paperka.png" alt="Paperka Logo">
 </div>
+
+<!-- Menu Desktop -->
 <ul class="menu">
     <li><a href="#">Our Models</a></li>
     <li><a href="#">Inventory</a></li>
     <li><a href="#">Service</a></li>
     <li><a href="#">Blog</a></li>
 </ul>
+
+<!-- Aksi -->
 <div class="actions">
-    <button class="contact"><i class="fa-brands fa-whatsapp" id="phoneiconcall"></i></button>
+    <button class="contact">
+        <i class="fa-brands fa-whatsapp"></i>
+    </button>
     <button class="build">
-        <img src="/assets/img/ppk.png" alt="Joss">Build your own
+        <img src="/assets/img/ppk.png" alt="Joss"> Build your own
     </button>
 </div>
 
 <!-- Menu Mobile -->
 <nav class="menu-mobile" id="mobileMenu">
-    <div class="close-btn">
-        ✖ <span>Close</span>
-    </div>
+    <div class="close-btn" onclick="toggleMenu()">✖ <span>Close</span></div>
 
     <div class="menu">
         <a href="#">Our Models ›</a>
