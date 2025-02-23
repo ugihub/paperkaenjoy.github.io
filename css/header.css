@@ -72,7 +72,7 @@ header ul.menu a:hover::after {
 header .menu-mobile {
     display: none; /* Default: Sembunyi */
     flex-direction: column;
-    max-width: 400px;
+    width: 100vh;
     position: absolute;
     top: 0;
     left: 0;
