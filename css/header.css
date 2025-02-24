@@ -10,7 +10,7 @@ header {
     /*position: absolute;*/
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 950;
 }
 
 /* Default: Sembunyikan burger menu di desktop */
@@ -221,7 +221,7 @@ header .menu-mobile .contact-info a:hover {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        z-index: 950;
+        /*z-index: 950;*/
     }
     header button.burger-menu {
         display: block; /* Tampilkan burger menu */
