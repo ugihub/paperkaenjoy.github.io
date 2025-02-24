@@ -2,7 +2,7 @@ import {onClick} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.6/element.js"
 
 export function afterContentLoad() {
     console.log("content loaded");
-    initSlider("main", "#prev", "#next");
+    //initSlider("main", "#prev", "#next");
 }
 
 export function initSlider(mainSelector, prevBtnSelector, nextBtnSelector) {

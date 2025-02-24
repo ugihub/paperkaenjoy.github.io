@@ -11,4 +11,4 @@ await addCSS("./css/header.css");
 await addCSS("./css/main.css");
 
 renderHTML('header', 'html/header/home.html', afterHeaderLoad);
-//renderHTML('main', 'html/main/home.html', afterContentLoad);
+renderHTML('main', 'html/main/home.html', afterContentLoad);
