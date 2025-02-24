@@ -16,6 +16,76 @@ main img {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opsional: Efek bayangan */
 }
 
+/* Kontainer slider */
+main .slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    height: 25vh; /* Slider memenuhi 25% dari tinggi layar */
+    max-height: 300px; /* (Opsional) Batas maksimum tinggi slider */
+}
+
+/* Slider */
+main .slider-container .slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%; /* Tinggi slider sesuai dengan kontainer */
+}
+
+/* Slide */
+main .slider-container .slider .slide {
+    position: relative; /* Berikan konteks posisi untuk teks overlay */
+    min-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Gambar dalam slide */
+main .slider-container .slider .slide img {
+    width: 100%; /* Penuhi lebar kontainer */
+    height: 100%; /* Penuhi tinggi kontainer */
+    object-fit: cover; /* Pangkas gambar secara proporsional agar sesuai kontainer */
+}
+
+/* Overlay teks */
+main .slider-container .slider .slide .text-overlay {
+    position: absolute; /* Posisi absolut untuk overlay */
+    top: 50%; /* Posisikan di tengah vertikal */
+    left: 50%; /* Posisikan di tengah horizontal */
+    transform: translate(-50%, -50%); /* Pusatkan elemen secara sempurna */
+    z-index: 2; /* Pastikan overlay berada di atas gambar */
+    color: #fff; /* Warna teks putih */
+    text-align: center; /* Teks rata tengah */
+    background: rgba(0, 0, 0, 0.5); /* Latar belakang transparan hitam */
+    padding: 10px; /* Ruang di dalam overlay */
+    border-radius: 5px; /* Sudut melengkung pada latar belakang */
+    max-width: 80%; /* Batas maksimal lebar overlay */
+}
+
+/* Navigasi dots */
+main .slider-container .dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 3;
+}
+
+main .slider-container .dots .dot {
+    width: 8px;
+    height: 8px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+main .slider-container .dots .dot.active {
+    background: #fff;
+}
 
 @media (max-width: 768px) {
     main img {
