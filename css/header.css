@@ -10,6 +10,7 @@ header {
     /*position: absolute;*/
     top: 0;
     left: 0;
+    overflow: visible;
 }
 
 /* Default: Sembunyikan burger menu di desktop */
@@ -226,47 +227,6 @@ header .actions .build:hover img {
 
     header .burger-menu {
         display: block; /* Tampilkan burger menu */
-    }
-
-    header ul.menu {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255,0.9);
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-        padding-top: 80px;
-        transition: left 0.3s ease-in-out;
-        z-index: 1000;
-    }
-
-    header ul.menu.active {
-        left: 0;
-    }
-
-    header ul.menu li {
-        margin: 15px 0;
-        text-align: left;
-        padding-left: 20px;
-    }
-    /* Styling Link Menu */
-    header ul.menu a {
-        color: rgb(0, 0, 0);
-        text-decoration: none;
-        font-size: 18px;
-        font-weight: bold;
-        display: block;
-        padding: 10px;
-        transition: background 0.3s ease-in-out;
-    }
-
-    /* Hover Effect */
-    header ul.menu a:hover {
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 5px;
     }
 
     header .actions {
