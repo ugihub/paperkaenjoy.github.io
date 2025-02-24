@@ -1,21 +1,3 @@
-main {
-    width: 100%; /* Lebar penuh */
-    max-width: 1200px; /* Maksimal lebar agar konten tidak terlalu besar */
-    margin: -93px auto 0; /* Beri margin minus agar dibelakang header */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-main img {
-    width: 100%; /* Lebar penuh */
-    max-width: 100vw; /* Maksimal sesuai lebar layar */
-    height: auto; /* Jaga proporsi gambar */
-    object-fit: cover; /* Menyesuaikan gambar agar tetap proporsional */
-    border-radius: 10px; /* Opsional: Beri sudut tumpul agar lebih estetis */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opsional: Efek bayangan */
-}
-
 /* Kontainer slider */
 main .slider-container {
     position: relative;
