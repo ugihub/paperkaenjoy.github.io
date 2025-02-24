@@ -10,11 +10,10 @@ header {
     /*position: absolute;*/
     top: 0;
     left: 0;
-    overflow: visible;
 }
 
 /* Default: Sembunyikan burger menu di desktop */
-header .burger-menu {
+header button.burger-menu {
     display: none;
     font-size: 28px;
     background: none;
@@ -25,7 +24,7 @@ header .burger-menu {
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 1100;
+    /*z-index: 1100;*/
 }
 
 header .logo {
@@ -39,23 +38,22 @@ header .logo {
 header .logo img {
     height: 70px;
 }
-header ul.menu {
+header .menu {
     display: flex;
     list-style: none;
-    gap: 15px;
 }
-header ul.menu li {
+header .menu li {
     margin: 0 15px;
     position: relative;
 }
-header ul.menu a {
+header .menu a {
     text-decoration: none;
     color: white;
     font-weight: bold;
     position: relative;
     display: inline-block;
 }
-header ul.menu a::after {
+header .menu a::after {
     content: "";
     position: absolute;
     left: 0;
@@ -65,72 +63,9 @@ header ul.menu a::after {
     background: white;
     transition: width 0.3s ease-in-out;
 }
-header ul.menu a:hover::after {
+header .menu a:hover::after {
     width: 100%;
 }
-
-/* Menu Mobile */
-header .menu-mobile {
-    display: none; /* Default: Sembunyi */
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    background: white;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    z-index: 1000;
-}
-
-header .menu-mobile .close-btn {
-    font-size: 18px;
-    font-weight: 500;
-    color: #444;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    margin-bottom: 20px;
-}
-
-header .menu-mobile .close-btn span {
-    margin-left: 8px;
-}
-
-header .menu-mobile .menu a {
-    display: block;
-    font-size: 22px;
-    font-weight: 500;
-    color: #444;
-    text-decoration: none;
-    margin: 10px 0;
-}
-
-header .menu-mobile .menu a:hover {
-    color: #000;
-}
-
-header .menu-mobile .menu .menu-divider {
-    border-top: 1px solid #ccc;
-    margin: 20px 0;
-}
-
-header .menu-mobile .contact-info {
-    font-size: 16px;
-    color: #777;
-    margin-top: 20px;
-}
-
-header .menu-mobile .contact-info a {
-    color: #444;
-    text-decoration: none;
-}
-
-header .menu-mobile .contact-info a:hover {
-    text-decoration: underline;
-}
-
 header .actions {
     display: flex;
     align-items: center;
@@ -217,6 +152,68 @@ header .actions .build:hover img {
     transform: scale(1.1);
 }
 
+/* Menu Mobile */
+header .menu-mobile {
+    display: none; /* Default: Sembunyi */
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: white;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+}
+
+header .menu-mobile .close-btn {
+    font-size: 18px;
+    font-weight: 500;
+    color: #444;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+header .menu-mobile .close-btn span {
+    margin-left: 8px;
+}
+
+header .menu-mobile .menu-mobile-content a {
+    display: block;
+    font-size: 22px;
+    font-weight: 500;
+    color: #444;
+    text-decoration: none;
+    margin: 10px 0;
+}
+
+header .menu-mobile .menu-mobile-content a:hover {
+    color: #000;
+}
+
+header .menu-mobile .menu-mobile-content .menu-divider {
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+header .menu-mobile .contact-info {
+    font-size: 16px;
+    color: #777;
+    margin-top: 20px;
+}
+
+header .menu-mobile .contact-info a {
+    color: #444;
+    text-decoration: none;
+}
+
+header .menu-mobile .contact-info a:hover {
+    text-decoration: underline;
+}
+
 
 @media (max-width: 768px) {
     header {
@@ -224,26 +221,12 @@ header .actions .build:hover img {
         justify-content: space-between;
         align-items: center;
     }
-
-    header .burger-menu {
+    header button.burger-menu {
         display: block; /* Tampilkan burger menu */
     }
-
-    header ul.menu {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255,0.9);
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-        padding-top: 80px;
-        transition: left 0.3s ease-in-out;
-        z-index: 1000;
+    header .menu {
+        display: none;
     }
-
     header .actions {
         margin-left: auto;
         gap: 5px;
