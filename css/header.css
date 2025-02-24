@@ -229,6 +229,21 @@ header .actions .build:hover img {
         display: block; /* Tampilkan burger menu */
     }
 
+    header ul.menu {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255,0.9);
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+        padding-top: 80px;
+        transition: left 0.3s ease-in-out;
+        z-index: 1000;
+    }
+
     header .actions {
         margin-left: auto;
         gap: 5px;
