@@ -12,8 +12,6 @@ main .slider-container {
     position: relative;
     overflow: hidden;
     width: 100vw;
-    height: 25vh; /* Slider memenuhi 25% dari tinggi layar */
-    max-height: 300px; /* (Opsional) Batas maksimum tinggi slider */
 }
 
 /* Slider */
