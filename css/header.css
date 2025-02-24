@@ -221,6 +221,7 @@ header .menu-mobile .contact-info a:hover {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        z-index: 950;
     }
     header button.burger-menu {
         display: block; /* Tampilkan burger menu */
