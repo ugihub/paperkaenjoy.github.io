@@ -1,7 +1,7 @@
 import {addCSS,renderHTML,onClick,container} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.3/element.js";
 import {afterHeaderLoad} from "/js/header/home.js";
 import {afterContentLoad} from "/js/main/home.js";
-import {afterSliderLoad} from "./js/slider/home.js";
+import {afterSliderLoad} from "/js/slider/home.js";
 
 await addCSS("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css");
 
