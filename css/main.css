@@ -1,3 +1,12 @@
+main {
+    width: 100%; /* Lebar penuh */
+    max-width: 1200px; /* Maksimal lebar agar konten tidak terlalu besar */
+    margin: -93px auto 0; /* Beri margin minus agar dibelakang header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /* Kontainer slider */
 main .slider-container {
     position: relative;
