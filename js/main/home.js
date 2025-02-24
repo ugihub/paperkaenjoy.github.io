@@ -2,76 +2,101 @@ import {onClick} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.6/element.js"
 
 export function afterContentLoad() {
     console.log("content loaded");
-    //initSlider("main", "#prev", "#next");
+    initSlider();
 }
 
-export function initSlider(mainSelector, prevBtnSelector, nextBtnSelector) {
+export function initSlider() {
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
     let currentIndex = 0;
-    const main = document.querySelector(mainSelector);
-    const slider = main.querySelector(".slider");
-    const slides = main.querySelectorAll(".slide");
-    const prevButton = document.querySelector(prevBtnSelector);
-    const nextButton = document.querySelector(nextBtnSelector);
-    let startX = 0;
-    let endX = 0;
     let isDragging = false;
     let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let animationID;
 
+    // Fungsi untuk memperbarui slide
     function showSlide(index) {
-        if (index >= slides.length) {
-            currentIndex = 0;
-        } else if (index < 0) {
-            currentIndex = slides.length - 1;
-        } else {
+        currentIndex = index;
+        currentTranslate = -currentIndex * window.innerWidth;
+        prevTranslate = currentTranslate;
+        setSliderPosition();
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[currentIndex].classList.add('active');
+    }
+
+    // Fungsi untuk mengatur posisi slider
+    function setSliderPosition() {
+        slider.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+    // Menambahkan event listener untuk setiap slide
+    slides.forEach((slide, index) => {
+        const slideImage = slide.querySelector('img');
+        slideImage.addEventListener('dragstart', (e) => e.preventDefault());
+
+        // Touch events
+        slide.addEventListener('touchstart', touchStart(index));
+        slide.addEventListener('touchend', touchEnd);
+        slide.addEventListener('touchmove', touchMove);
+
+        // Mouse events
+        slide.addEventListener('mousedown', touchStart(index));
+        slide.addEventListener('mouseup', touchEnd);
+        slide.addEventListener('mousemove', touchMove);
+        slide.addEventListener('mouseleave', touchEnd);
+    });
+
+    // Fungsi ketika touch atau mouse mulai
+    function touchStart(index) {
+        return function (event) {
+            isDragging = true;
+            startPos = getPositionX(event);
+            animationID = requestAnimationFrame(animation);
             currentIndex = index;
-        }
-        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        };
     }
 
-    function nextSlide() {
-        showSlide(currentIndex + 1);
-    }
-
-    function prevSlide() {
-        showSlide(currentIndex - 1);
-    }
-
-    prevButton.addEventListener("click", prevSlide);
-    nextButton.addEventListener("click", nextSlide);
-    setInterval(nextSlide, 5000);
-
-    // Swipe functionality for touch devices
-    slider.addEventListener("touchstart", (e) => {
-        startX = e.touches[0].clientX;
-    });
-    slider.addEventListener("touchend", (e) => {
-        endX = e.changedTouches[0].clientX;
-        if (startX > endX + 50) {
-            nextSlide();
-        } else if (startX < endX - 50) {
-            prevSlide();
-        }
-    });
-
-    // Mouse drag functionality
-    slider.addEventListener("mousedown", (e) => {
-        isDragging = true;
-        startPos = e.clientX;
-        slider.style.cursor = "grabbing";
-    });
-    window.addEventListener("mouseup", () => {
+    // Fungsi ketika touch atau mouse berhenti
+    function touchEnd() {
         isDragging = false;
-        slider.style.cursor = "grab";
-    });
-    window.addEventListener("mousemove", (e) => {
-        if (!isDragging) return;
-        const moveX = e.clientX - startPos;
-        if (moveX > 50) {
-            prevSlide();
-            isDragging = false;
-        } else if (moveX < -50) {
-            nextSlide();
-            isDragging = false;
+        cancelAnimationFrame(animationID);
+
+        const movedBy = currentTranslate - prevTranslate;
+
+        if (movedBy < -100 && currentIndex < slides.length - 1) currentIndex += 1;
+        if (movedBy > 100 && currentIndex > 0) currentIndex -= 1;
+
+        showSlide(currentIndex);
+    }
+
+    // Fungsi ketika touch atau mouse bergerak
+    function touchMove(event) {
+        if (isDragging) {
+            const currentPosition = getPositionX(event);
+            currentTranslate = prevTranslate + currentPosition - startPos;
+            setSliderPosition();
         }
-    });
+    }
+
+    // Mendapatkan posisi X dari touch atau mouse
+    function getPositionX(event) {
+        return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+    }
+
+    // Animasi agar pergerakan terasa smooth
+    function animation() {
+        setSliderPosition();
+        if (isDragging) requestAnimationFrame(animation);
+    }
+
+    // Auto-slide (opsional)
+    setInterval(() => {
+        if (!isDragging) {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }
+    }, 5000);
+
 }
