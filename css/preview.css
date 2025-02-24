@@ -1,0 +1,148 @@
+.preview {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 40px 0;
+}
+
+.preview h2 {
+  font-size: 48px;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.preview p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* Kontainer slider */
+.preview .slider-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 20px 0 40px 0;
+  max-width: 1200px; 
+  margin: 0 auto; 
+}
+
+/* Slider */
+.preview .slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Slide */
+.preview .slide {
+  position: relative;
+  width: calc(100% - 40px); 
+  margin: 0 20px; 
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  background-color: #fff; 
+  display: flex;
+  flex-direction: column; 
+}
+
+/* Gambar dalam slide */
+.preview .slide img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+
+.preview .card-content {
+  padding: 20px;
+  background-color: #fff;
+  color: #333;
+}
+
+.preview .card-content h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+  text-align: left;
+  color: #333;
+  font-weight: 500;
+}
+
+.preview .card-content p {
+  margin: 0;
+  font-size: 1rem;
+  text-align: left;
+  color: #666;
+}
+
+
+.preview .rating {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.preview .star {
+  color: #FFD700;
+  font-size: 18px;
+}
+
+/* Navigasi dots */
+.preview .dots {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  padding: 10px 0;
+}
+
+.preview .dot {
+  width: 8px;
+  height: 8px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.preview .dot.active {
+  background: #333;
+}
+
+
+@media (min-width: 769px) {
+  .preview .slider {
+    padding: 0 20px;
+    gap: 20px;
+    width: 100%; 
+    max-width: 100%; 
+  }
+  
+  .preview .slide {
+    width: calc((100% / 3) - (40px / 3)); 
+    margin: 0; 
+    height: 400px; 
+  }
+  
+  .preview .card-content {
+    height: 180px; 
+    overflow: hidden; 
+  }
+  
+  .preview .slider-container {
+    overflow: visible; 
+  }
+  
+  /* Sembunyikan dots navigation pada desktop */
+  .preview .dots {
+    display: none;
+  }
+}
