@@ -16,7 +16,9 @@ body {
     background-color: black;
 }
 img {
-    width: 100vw;
+    width: 70%;
+    display: block;
+    margin: auto;
     height: 100vh;
     object-fit: scale-down;
 }
