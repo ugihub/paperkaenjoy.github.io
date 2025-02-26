@@ -1,0 +1,38 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+/* Unmute button */
+#unmuteButton {
+    position: fixed;
+    bottom: 75px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparansi 50% */
+    color: white;
+    border: 1px solid white; /* Batas putih untuk tampilan lebih baik */
+    border-radius: 5px; /* Membulatkan sudut */
+    cursor: pointer;
+    z-index: 2;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Efek hover */
+}
+
+/* Hover effect */
+#unmuteButton:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Sedikit lebih gelap saat hover */
+    color: #f0f0f0; /* Sedikit lebih terang saat hover */
+}
