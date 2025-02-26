@@ -2,7 +2,7 @@ import {addCSS,renderHTML,onClick,container} from "https://cdn.jsdelivr.net/gh/j
 
 await addCSS("./css/video.css")
 
-renderHTML('content', 'html/main/video.html', afterContentLoad);
+renderHTML('main', 'html/main/video.html', afterContentLoad);
 
 function afterContentLoad() {
     let video = document.getElementById("myVideo");
