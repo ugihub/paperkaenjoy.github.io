@@ -1,8 +1,8 @@
 import {addCSS,renderHTML,onClick,container} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.3/element.js";
 
-await addCSS("./css/video.css")
+await addCSS("./css/img.css")
 
-renderHTML('main', 'html/main/video.html', afterContentLoad);
+renderHTML('main', 'html/main/img.html', afterContentLoad);
 
 function afterContentLoad() {
     let video = document.getElementById("myVideo");
