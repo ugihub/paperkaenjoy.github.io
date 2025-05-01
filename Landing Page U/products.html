@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products | Paperka</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="icon" href="./Assets/image/paperka.png" type="image/png">
+</head>
+
+<body>
+    <!-- Age Verification Modal -->
+    <div id="ageVerification" class="age-verification items-center justify-center">
+        <div class="bg-white p-8 rounded-lg max-w-md w-full mx-4 shadow-xl">
+            <div class="text-center mb-6">
+                <i class="fas fa-exclamation-circle text-4xl text-primary mb-4"></i>
+                <h2 class="text-2xl font-bold mb-2 title-font">Age Verification</h2>
+                <p class="text-gray-700">You must be at least 21 years old to enter this site.</p>
+            </div>
+            <div class="flex flex-col space-y-4">
+                <button id="verifyAge" class="btn btn-primary py-3 px-6 rounded">
+                    I am 21 or older
+                </button>
+                <button id="exitSite" class="btn btn-outline py-3 px-6 rounded">
+                    I am under 21
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-primary text-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-smoking text-accent text-2xl mr-3"></i>
+                <h1 class="text-2xl font-bold title-font tracking-tight">PAPERKA</h1>
+            </div>
+            <nav class="hidden lg:flex space-x-8">
+                <a href="index.html#products" class="nav-link hover:text-accent transition-all">
+                    <i class="fas fa-box mobile-nav-icon mr-1"></i>
+                    <span class="nav-text">Products</span>
+                </a>
+                <a href="index.html#about" class="nav-link hover:text-accent transition-all">
+                    <i class="fas fa-info-circle mobile-nav-icon mr-1"></i>
+                    <span class="nav-text">About</span>
+                </a>
+                <a href="index.html#testimonials" class="nav-link hover:text-accent transition-all">
+                    <i class="fas fa-comment mobile-nav-icon mr-1"></i>
+                    <span class="nav-text">Testimonials</span>
+                </a>
+                <a href="index.html#contact" class="nav-link hover:text-accent transition-all">
+                    <i class="fas fa-map-marker-alt mobile-nav-icon mr-1"></i>
+                    <span class="nav-text">Contact</span>
+                </a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button id="viewCartBtn" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </button>
+                <button class="lg:hidden text-white focus:outline-none" id="mobileMenuButton">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Modal Cart -->
+        <div id="cartModal" class="cart-modal">
+            <div class="modal-content">
+                <!-- Header -->
+                <div class="modal-header">
+                    <h3>Your Bag (<span class="item-count">1</span> item)</h3>
+                    <button class="close-btn">&times;</button>
+                </div>
+
+                <!-- Item List -->
+                <div class="cart-items">
+                    <!-- Empty cart state -->
+                    <div class="empty-cart-container" id="emptyCartContainer">
+                        <div class="empty-cart-icon">
+                            <i class="fas fa-shopping-cart fa-4x text-gray-300"></i>
+                        </div>
+                        <h3 class="empty-cart-title">Your cart is empty</h3>
+                        <p class="empty-cart-message">Looks like you haven't added any items to your cart yet.</p>
+                        <a href="#products" class="btn btn-primary px-6 py-2 rounded mt-4 empty-cart-button">
+                            <i class="fas fa-shopping-bag mr-2"></i>Browse Products
+                        </a>
+                    </div>
+                    <!-- Cart items will be dynamically added here -->
+                </div>
+
+                <!-- Total -->
+                <div class="total-section">
+                    <p>Total: <span class="total-price">$0.00</span></p>
+                </div>
+
+                <!-- Footer -->
+                <div class="footer-cart" id="cartFooter">
+                    <button class="view-cart-btn">VIEW CART</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-primary py-4 px-6">
+            <div class="flex flex-col space-y-4">
+                <a href="index.html#products" class="nav-link hover:text-accent transition-all py-2 flex items-center">
+                    <i class="fas fa-box mr-3"></i> Products
+                </a>
+                <a href="index.html#about" class="nav-link hover:text-accent transition-all py-2 flex items-center">
+                    <i class="fas fa-info-circle mr-3"></i> About
+                </a>
+                <a href="index.html#testimonials" class="nav-link hover:text-accent transition-all py-2 flex items-center">
+                    <i class="fas fa-comment mr-3"></i> Testimonials
+                </a>
+                <a href="index.html#contact" class="nav-link hover:text-accent transition-all py-2 flex items-center">
+                    <i class="fas fa-map-marker-alt mr-3"></i> Contact
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="py-16 bg-cover bg-center" style="background-image: url('https://img.freepik.com/free-photo/tobacco-leaves-dark-background_93675-129052.jpg'); background-color: rgba(0,0,0,0.7); background-blend-mode: overlay;">
+        <div class="container mx-auto px-6">
+            <h1 class="text-3xl md:text-4xl font-bold title-font text-center text-white">All Products</h1>
+            <p class="text-gray-300 text-center mt-2">Browse our complete collection of premium tobacco products</p>
+        </div>
+    </section>
+
+    <!-- Products Section with Search and Filter -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <!-- Search Bar -->
+            <div class="mb-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="w-full md:w-1/2">
+                        <div class="relative">
+                            <input type="text" id="searchInput" placeholder="Search products..."
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <button id="searchButton" class="absolute right-3 top-3 text-gray-500 hover:text-primary">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-auto flex justify-between md:justify-end gap-4">
+                        <button id="filterToggle" class="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100">
+                            <i class="fas fa-filter"></i>
+                            <span>Filters</span>
+                        </button>
+                        <select id="sortSelect" class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="featured">Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Top Rated</option>
+                            <option value="newest">Newest</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Filter Sidebar -->
+                <div id="filterSidebar" class="w-full lg:w-1/4 lg:block hidden">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <h3 class="text-lg font-bold mb-4 pb-2 border-b border-gray-200">Filter Products</h3>
+                        
+                        <!-- Category Filter -->
+                        <div class="mb-6">
+                            <h4 class="font-medium mb-3">Category</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="checkbox" class="category-filter" value="cigars">
+                                    <span>Cigars</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="checkbox" class="category-filter" value="pipes">
+                                    <span>Pipes</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="checkbox" class="category-filter" value="tobacco">
+                                    <span>Tobacco</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="checkbox" class="category-filter" value="accessories">
+                                    <span>Accessories</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="checkbox" class="category-filter" value="gift-sets">
+                                    <span>Gift Sets</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Price Range Filter -->
+                        <div class="mb-6">
+                            <h4 class="font-medium mb-3">Price Range</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="radio" name="price-range" class="price-filter" value="0-25">
+                                    <span>Under $25</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="radio" name="price-range" class="price-filter" value="25-50">
+                                    <span>$25 - $50</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="radio" name="price-range" class="price-filter" value="50-100">
+                                    <span>$50 - $100</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="radio" name="price-range" class="price-filter" value="100+">
+                                    <span>$100+</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Rating Filter -->
+                        <div class="mb-6">
+                            <h4 class="font-medium mb-3">Rating</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="radio" name="rating" class="rating-filter" value="4+">
+                                    <span class="flex items-center">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="far fa-star text-yellow-400"></i>
+                                        <span class="ml-1">& Up</span>
+                                    </span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="radio" name="rating" class="rating-filter" value="3+">
+                                    <span class="flex items-center">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="far fa-star text-yellow-400"></i>
+                                        <i class="far fa-star text-yellow-400"></i>
+                                        <span class="ml-1">& Up</span>
+                                    </span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="radio" name="rating" class="rating-filter" value="2+">
+                                    <span class="flex items-center">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="far fa-star text-yellow-400"></i>
+                                        <i class="far fa-star text-yellow-400"></i>
+                                        <i class="far fa-star text-yellow-400"></i>
+                                        <span class="ml-1">& Up</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Clear Filters Button -->
+                        <button id="clearFilters" class="w-full py-2 px-4 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg transition-all">
+                            Clear All Filters
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Products Grid -->
+                <div class="w-full lg:w-3/4">
+                    <div id="productsCount" class="mb-4 text-gray-600">Showing 12 products</div>
+                    
+                    <div id="productsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Product Card 1 -->
+                        <div class="product-card rounded-xl overflow-hidden transition-all h-full" data-category="cigars" data-price="29.99" data-rating="5">
+                            <div class="relative overflow-hidden h-72">
+                                <img src="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740"
+                                    alt="Premium Cigars"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                                <div
+                                    class="absolute top-4 right-4 bg-black text-white px-3 py-1 rounded-full text-xs font-bold tracking-wide">
+                                    BEST SELLER
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-xl font-bold title-font">Havana Gold Cigars</h3>
+                                    <span class="text-lg font-bold text-primary">$29.99</span>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm">Aged to perfection with rich, complex flavors and
+                                    a smooth draw</p>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span class="text-gray-500 text-xs ml-2">(48)</span>
+                                    </div>
+                                    <button class="btn btn-primary px-6 py-2.5 rounded-lg font-medium text-sm add-to-cart-btn w-full md:w-auto" data-id="1" data-name="Havana Gold Cigars" data-price="29.99" data-image="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740">
+                                        <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 2 -->
+                        <div class="product-card rounded-xl overflow-hidden transition-all h-full" data-category="tobacco" data-price="24.99" data-rating="4.5">
+                            <div class="relative overflow-hidden h-72">
+                                <img src="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740"
+                                    alt="Pipe Tobacco"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-xl font-bold title-font">English Pipe Blend</h3>
+                                    <span class="text-lg font-bold text-primary">$24.99</span>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm">Aromatic blend with notes of vanilla, oak, and
+                                    subtle spice</p>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <span class="text-gray-500 text-xs ml-2">(36)</span>
+                                    </div>
+                                    <button class="btn btn-primary px-4 py-2 rounded text-sm add-to-cart-btn" data-id="2" data-name="English Pipe Blend" data-price="24.99" data-image="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740">
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 3 -->
+                        <div class="product-card rounded-xl overflow-hidden transition-all h-full" data-category="accessories" data-price="89.99" data-rating="5">
+                            <div class="relative overflow-hidden h-72">
+                                <img src="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740"
+                                    alt="Accessories"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                                <div
+                                    class="absolute top-4 right-4 bg-accent text-primary px-3 py-1 rounded-full text-xs font-bold tracking-wide">
+                                    NEW ARRIVAL
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-xl font-bold title-font">Artisan Pipe Set</h3>
+                                    <span class="text-lg font-bold text-primary">$89.99</span>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm">Handcrafted briar pipe with matching accessories
+                                    and case</p>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span class="text-gray-500 text-xs ml-2">(12)</span>
+                                    </div>
+                                    <button class="btn btn-primary px-4 py-2 rounded text-sm add-to-cart-btn" data-id="3" data-name="Artisan Pipe Set" data-price="89.99" data-image="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740">
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 4 -->
+                        <div class="product-card rounded-xl overflow-hidden transition-all h-full" data-category="gift-sets" data-price="149.99" data-rating="4">
+                            <div class="relative overflow-hidden h-72">
+                                <img src="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740"
+                                    alt="Cigar Box"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                                <div
+                                    class="absolute top-4 right-4 bg-black text-white px-3 py-1 rounded-full text-xs font-bold tracking-wide">
+                                    LIMITED EDITION
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-xl font-bold title-font">Collector's Cigar Box</h3>
+                                    <span class="text-lg font-bold text-primary">$149.99</span>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm">Handcrafted mahogany box with 10 premium cigars
+                                </p>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <span class="text-gray-500 text-xs ml-2">(8)</span>
+                                    </div>
+                                    <button class="btn btn-primary px-4 py-2 rounded text-sm add-to-cart-btn" data-id="4" data-name="Collector's Cigar Box" data-price="149.99" data-image="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740">
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 5 -->
+                        <div class="product-card rounded-xl overflow-hidden transition-all h-full" data-category="accessories" data-price="39.99" data-rating="4.5">
+                            <div class="relative overflow-hidden h-72">
+                                <img src="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740"
+                                    alt="Tobacco Pouch"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-xl font-bold title-font">Leather Tobacco Pouch</h3>
+                                    <span class="text-lg font-bold text-primary">$39.99</span>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm">Premium leather pouch with built-in humidor</p>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <span class="text-gray-500 text-xs ml-2">(22)</span>
+                                    </div>
+                                    <button class="btn btn-primary px-4 py-2 rounded text-sm add-to-cart-btn" data-id="5" data-name="Leather Tobacco Pouch" data-price="39.99" data-image="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740">
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 6 -->
+                        <div class="product-card rounded-xl overflow-hidden transition-all h-full" data-category="cigars" data-price="19.99" data-rating="3.5">
+                            <div class="relative overflow-hidden h-72">
+                                <img src="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740"
+                                    alt="Cigarillos"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-xl font-bold title-font">Mini Cigarillos</h3>
+                                    <span class="text-lg font-bold text-primary">$19.99</span>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm">Aromatic blend with notes of vanilla, oak, and
+                                    subtle spice</p>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <span class="text-gray-500 text-xs ml-2">(36)</span>
+                                    </div>
+                                    <button class="btn btn-primary px-4 py-2 rounded text-sm add-to-cart-btn" data-id="6" data-name="Mini Cigarillos" data-price="19.99" data-image="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740">
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <script src="products.js"></script>
+
+                        </body>
+
+                        </html>
