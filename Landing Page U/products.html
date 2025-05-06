@@ -114,7 +114,8 @@
                 <a href="index.html#about" class="nav-link hover:text-accent transition-all py-2 flex items-center">
                     <i class="fas fa-info-circle mr-3"></i> About
                 </a>
-                <a href="index.html#testimonials" class="nav-link hover:text-accent transition-all py-2 flex items-center">
+                <a href="index.html#testimonials"
+                    class="nav-link hover:text-accent transition-all py-2 flex items-center">
                     <i class="fas fa-comment mr-3"></i> Testimonials
                 </a>
                 <a href="index.html#contact" class="nav-link hover:text-accent transition-all py-2 flex items-center">
@@ -125,7 +126,8 @@
     </header>
 
     <!-- Page Title -->
-    <section class="py-16 bg-cover bg-center" style="background-image: url('https://img.freepik.com/free-photo/tobacco-leaves-dark-background_93675-129052.jpg'); background-color: rgba(0,0,0,0.7); background-blend-mode: overlay;">
+    <section class="py-16 bg-cover bg-center"
+        style="background-image: url('https://img.freepik.com/free-photo/broken-cigarette-table_23-2148527425.jpg?t=st=1746535707~exp=1746539307~hmac=6302b0cc46718cc10ec93addd30c3346a8a739faba256eeed7322de05f443868&w=1800'); background-color: rgba(0,0,0,0.7); background-blend-mode: overlay;">
         <div class="container mx-auto px-6">
             <h1 class="text-3xl md:text-4xl font-bold title-font text-center text-white">All Products</h1>
             <p class="text-gray-300 text-center mt-2">Browse our complete collection of premium tobacco products</p>
@@ -148,11 +150,13 @@
                         </div>
                     </div>
                     <div class="w-full md:w-auto flex justify-between md:justify-end gap-4">
-                        <button id="filterToggle" class="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100">
+                        <button id="filterToggle"
+                            class="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100">
                             <i class="fas fa-filter"></i>
                             <span>Filters</span>
                         </button>
-                        <select id="sortSelect" class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        <select id="sortSelect"
+                            class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
                             <option value="featured">Featured</option>
                             <option value="price-low">Price: Low to High</option>
                             <option value="price-high">Price: High to Low</option>
@@ -168,7 +172,7 @@
                 <div id="filterSidebar" class="w-full lg:w-1/4 lg:block hidden">
                     <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
                         <h3 class="text-lg font-bold mb-4 pb-2 border-b border-gray-200">Filter Products</h3>
-                        
+
                         <!-- Category Filter -->
                         <div class="mb-6">
                             <h4 class="font-medium mb-3">Category</h4>
@@ -195,7 +199,7 @@
                                 </label>
                             </div>
                         </div>
-                        
+
                         <!-- Price Range Filter -->
                         <div class="mb-6">
                             <h4 class="font-medium mb-3">Price Range</h4>
@@ -218,7 +222,7 @@
                                 </label>
                             </div>
                         </div>
-                        
+
                         <!-- Rating Filter -->
                         <div class="mb-6">
                             <h4 class="font-medium mb-3">Rating</h4>
@@ -258,21 +262,23 @@
                                 </label>
                             </div>
                         </div>
-                        
+
                         <!-- Clear Filters Button -->
-                        <button id="clearFilters" class="w-full py-2 px-4 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg transition-all">
+                        <button id="clearFilters"
+                            class="w-full py-2 px-4 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg transition-all">
                             Clear All Filters
                         </button>
                     </div>
                 </div>
-                
+
                 <!-- Products Grid -->
                 <div class="w-full lg:w-3/4">
                     <div id="productsCount" class="mb-4 text-gray-600">Showing 12 products</div>
-                    
+
                     <div id="productsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <!-- Product Card 1 -->
-                        <div class="product-card rounded-xl overflow-hidden transition-all h-full" data-category="cigars" data-price="29.99" data-rating="5">
+                        <div class="product-card rounded-xl overflow-hidden transition-all h-full"
+                            data-category="cigars" data-price="29.99" data-rating="5">
                             <div class="relative overflow-hidden h-72">
                                 <img src="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740"
                                     alt="Premium Cigars"
@@ -298,7 +304,10 @@
                                         <i class="fas fa-star"></i>
                                         <span class="text-gray-500 text-xs ml-2">(48)</span>
                                     </div>
-                                    <button class="btn btn-primary px-6 py-2.5 rounded-lg font-medium text-sm add-to-cart-btn w-full md:w-auto" data-id="1" data-name="Havana Gold Cigars" data-price="29.99" data-image="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740">
+                                    <button
+                                        class="btn btn-primary px-6 py-2.5 rounded-lg font-medium text-sm add-to-cart-btn w-full md:w-auto"
+                                        data-id="1" data-name="Havana Gold Cigars" data-price="29.99"
+                                        data-image="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740">
                                         <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
                                     </button>
                                 </div>
@@ -306,7 +315,8 @@
                         </div>
 
                         <!-- Product Card 2 -->
-                        <div class="product-card rounded-xl overflow-hidden transition-all h-full" data-category="tobacco" data-price="24.99" data-rating="4.5">
+                        <div class="product-card rounded-xl overflow-hidden transition-all h-full"
+                            data-category="tobacco" data-price="24.99" data-rating="4.5">
                             <div class="relative overflow-hidden h-72">
                                 <img src="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740"
                                     alt="Pipe Tobacco"
@@ -328,7 +338,9 @@
                                         <i class="fas fa-star-half-alt"></i>
                                         <span class="text-gray-500 text-xs ml-2">(36)</span>
                                     </div>
-                                    <button class="btn btn-primary px-4 py-2 rounded text-sm add-to-cart-btn" data-id="2" data-name="English Pipe Blend" data-price="24.99" data-image="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740">
+                                    <button class="btn btn-primary px-4 py-2 rounded text-sm add-to-cart-btn"
+                                        data-id="2" data-name="English Pipe Blend" data-price="24.99"
+                                        data-image="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740">
                                         Add to Cart
                                     </button>
                                 </div>
@@ -336,7 +348,8 @@
                         </div>
 
                         <!-- Product Card 3 -->
-                        <div class="product-card rounded-xl overflow-hidden transition-all h-full" data-category="accessories" data-price="89.99" data-rating="5">
+                        <div class="product-card rounded-xl overflow-hidden transition-all h-full"
+                            data-category="accessories" data-price="89.99" data-rating="5">
                             <div class="relative overflow-hidden h-72">
                                 <img src="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740"
                                     alt="Accessories"
@@ -362,7 +375,9 @@
                                         <i class="fas fa-star"></i>
                                         <span class="text-gray-500 text-xs ml-2">(12)</span>
                                     </div>
-                                    <button class="btn btn-primary px-4 py-2 rounded text-sm add-to-cart-btn" data-id="3" data-name="Artisan Pipe Set" data-price="89.99" data-image="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740">
+                                    <button class="btn btn-primary px-4 py-2 rounded text-sm add-to-cart-btn"
+                                        data-id="3" data-name="Artisan Pipe Set" data-price="89.99"
+                                        data-image="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740">
                                         Add to Cart
                                     </button>
                                 </div>
@@ -370,7 +385,8 @@
                         </div>
 
                         <!-- Product Card 4 -->
-                        <div class="product-card rounded-xl overflow-hidden transition-all h-full" data-category="gift-sets" data-price="149.99" data-rating="4">
+                        <div class="product-card rounded-xl overflow-hidden transition-all h-full"
+                            data-category="gift-sets" data-price="149.99" data-rating="4">
                             <div class="relative overflow-hidden h-72">
                                 <img src="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740"
                                     alt="Cigar Box"
@@ -396,7 +412,9 @@
                                         <i class="far fa-star"></i>
                                         <span class="text-gray-500 text-xs ml-2">(8)</span>
                                     </div>
-                                    <button class="btn btn-primary px-4 py-2 rounded text-sm add-to-cart-btn" data-id="4" data-name="Collector's Cigar Box" data-price="149.99" data-image="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740">
+                                    <button class="btn btn-primary px-4 py-2 rounded text-sm add-to-cart-btn"
+                                        data-id="4" data-name="Collector's Cigar Box" data-price="149.99"
+                                        data-image="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740">
                                         Add to Cart
                                     </button>
                                 </div>
@@ -404,7 +422,8 @@
                         </div>
 
                         <!-- Product Card 5 -->
-                        <div class="product-card rounded-xl overflow-hidden transition-all h-full" data-category="accessories" data-price="39.99" data-rating="4.5">
+                        <div class="product-card rounded-xl overflow-hidden transition-all h-full"
+                            data-category="accessories" data-price="39.99" data-rating="4.5">
                             <div class="relative overflow-hidden h-72">
                                 <img src="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740"
                                     alt="Tobacco Pouch"
@@ -425,7 +444,9 @@
                                         <i class="fas fa-star-half-alt"></i>
                                         <span class="text-gray-500 text-xs ml-2">(22)</span>
                                     </div>
-                                    <button class="btn btn-primary px-4 py-2 rounded text-sm add-to-cart-btn" data-id="5" data-name="Leather Tobacco Pouch" data-price="39.99" data-image="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740">
+                                    <button class="btn btn-primary px-4 py-2 rounded text-sm add-to-cart-btn"
+                                        data-id="5" data-name="Leather Tobacco Pouch" data-price="39.99"
+                                        data-image="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740">
                                         Add to Cart
                                     </button>
                                 </div>
@@ -433,7 +454,8 @@
                         </div>
 
                         <!-- Product Card 6 -->
-                        <div class="product-card rounded-xl overflow-hidden transition-all h-full" data-category="cigars" data-price="19.99" data-rating="3.5">
+                        <div class="product-card rounded-xl overflow-hidden transition-all h-full"
+                            data-category="cigars" data-price="19.99" data-rating="3.5">
                             <div class="relative overflow-hidden h-72">
                                 <img src="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740"
                                     alt="Cigarillos"
@@ -455,14 +477,19 @@
                                         <i class="fas fa-star-half-alt"></i>
                                         <span class="text-gray-500 text-xs ml-2">(36)</span>
                                     </div>
-                                    <button class="btn btn-primary px-4 py-2 rounded text-sm add-to-cart-btn" data-id="6" data-name="Mini Cigarillos" data-price="19.99" data-image="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740">
+                                    <button class="btn btn-primary px-4 py-2 rounded text-sm add-to-cart-btn"
+                                        data-id="6" data-name="Mini Cigarillos" data-price="19.99"
+                                        data-image="https://img.freepik.com/free-photo/pack-cigarettes-light-background_185193-163148.jpg?t=st=1745656951~exp=1745660551~hmac=e5aae38b0900a3ae7358a2ad7450002576338b11c61af7e7e87e3072306fe64e&w=740">
                                         Add to Cart
                                     </button>
                                 </div>
                             </div>
                         </div>
-                        <script src="products.js"></script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
 
-                        </body>
-
-                        </html>
+</html>

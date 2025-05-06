@@ -150,13 +150,13 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.product-card, .testimonial-card').forEach(card => {
         observer.observe(card);
     });
-    
+
     // Testimonial carousel pause functionality
     const testimonialContainer = document.querySelector('.testimonial-container');
     let isPaused = false;
-    
+
     // Pause on click
-    testimonialContainer.addEventListener('click', function() {
+    testimonialContainer.addEventListener('click', function () {
         isPaused = !isPaused;
         if (isPaused) {
             testimonialContainer.classList.add('paused');
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
             testimonialContainer.classList.remove('paused');
         }
     });
-    
+
     // Hover functionality is handled by CSS
 });
 
@@ -174,10 +174,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const cartItemsContainer = document.querySelector('.cart-items');
     const cartCountElement = document.querySelector('.cart-count');
     const itemCountElement = document.querySelector('.item-count');
-    
+
     // Cart data structure
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
+
     // Toggle modal visibility
     viewCartBtn.addEventListener('click', () => {
         cartModal.style.transform = 'translateX(0)';
@@ -187,18 +187,18 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.close-btn').addEventListener('click', () => {
         cartModal.style.transform = 'translateX(100%)';
     });
-    
+
     // Initialize cart from localStorage
     function initCart() {
         updateCartDisplay();
         updateCartCount();
     }
-    
+
     // Add product to cart
     function addToCart(product) {
         // Check if product already exists in cart
         const existingProductIndex = cart.findIndex(item => item.id === product.id);
-        
+
         if (existingProductIndex > -1) {
             // Increment quantity if product already in cart
             cart[existingProductIndex].quantity += 1;
@@ -209,13 +209,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 quantity: 1
             });
         }
-        
+
         // Save to localStorage
         saveCart();
         updateCartDisplay();
         updateCartCount();
     }
-    
+
     // Remove product from cart
     function removeFromCart(productId) {
         cart = cart.filter(item => item.id !== productId);
@@ -223,11 +223,11 @@ document.addEventListener('DOMContentLoaded', function () {
         updateCartDisplay();
         updateCartCount();
     }
-    
+
     // Update product quantity
     function updateProductQuantity(productId, newQuantity) {
         const productIndex = cart.findIndex(item => item.id === productId);
-        
+
         if (productIndex > -1) {
             if (newQuantity <= 0) {
                 // Remove product if quantity is 0 or less
@@ -240,17 +240,17 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     }
-    
+
     // Save cart to localStorage
     function saveCart() {
         localStorage.setItem('cart', JSON.stringify(cart));
     }
-    
+
     // Update cart display
     function updateCartDisplay() {
         // Clear current cart display
         cartItemsContainer.innerHTML = '';
-        
+
         // Check if cart is empty
         if (cart.length === 0) {
             // Show empty cart message
@@ -267,13 +267,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
             `;
             cartItemsContainer.innerHTML = emptyCartHTML;
-            
+
             // Update total to zero
             document.querySelector('.total-price').textContent = '$0.00';
-            
+
             // Hide the cart footer button when cart is empty
             document.getElementById('cartFooter').style.display = 'none';
-            
+
             // Add event listener to browse products button to close the cart modal
             setTimeout(() => {
                 const browseProductsBtn = document.getElementById('browseProductsBtn');
@@ -283,16 +283,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     });
                 }
             }, 100);
-            
+
             return;
         }
-        
+
         // Add each item to cart display
         cart.forEach(item => {
             const cartItemElement = document.createElement('div');
             cartItemElement.classList.add('cart-item');
             cartItemElement.dataset.id = item.id;
-            
+
             cartItemElement.innerHTML = `
                 <img src="${item.image}" alt="${item.name}" class="item-image">
                 <div class="item-details">
@@ -305,82 +305,259 @@ document.addEventListener('DOMContentLoaded', function () {
                     <p class="price">$${item.price}</p>
                 </div>
             `;
-            
+
             cartItemsContainer.appendChild(cartItemElement);
         });
-        
+
         // Add event listeners to quantity buttons
         addQuantityControlListeners();
-        
+
         // Update total
         updateCartTotal();
-        
+
         // Show the cart footer button when cart has items
         document.getElementById('cartFooter').style.display = 'block';
     }
-    
+
     // Add event listeners to quantity control buttons
     function addQuantityControlListeners() {
         document.querySelectorAll('.quantity-btn').forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 const cartItem = this.closest('.cart-item');
                 const productId = cartItem.dataset.id;
                 const quantityValue = this.parentElement.querySelector('.quantity-value');
                 let quantity = parseInt(quantityValue.textContent);
-                
+
                 if (this.classList.contains('increase')) {
                     quantity++;
                 } else if (this.classList.contains('decrease')) {
                     quantity--;
                 }
-                
+
                 updateProductQuantity(productId, quantity);
-                
+
                 if (quantity > 0) {
                     quantityValue.textContent = quantity;
                 }
             });
         });
     }
-    
+
     // Update cart count
     function updateCartCount() {
         const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
         cartCountElement.textContent = totalItems;
         itemCountElement.textContent = totalItems;
     }
-    
+
     // Function to update cart total
     function updateCartTotal() {
         let total = 0;
         cart.forEach(item => {
             total += item.price * item.quantity;
         });
-        
+
         document.querySelector('.total-price').textContent = '$' + total.toFixed(2);
     }
-    
+
     // Add event listeners to "Add to Cart" buttons
     document.querySelectorAll('.btn-primary').forEach(button => {
         if (button.textContent.trim() === 'Add to Cart') {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 const productCard = this.closest('.product-card');
                 const productName = productCard.querySelector('h3').textContent;
                 const productPrice = parseFloat(productCard.querySelector('.text-lg').textContent.replace('$', ''));
                 const productImage = productCard.querySelector('img').src;
-                
+
                 const product = {
                     id: productName.replace(/\s+/g, '-').toLowerCase(),
                     name: productName,
                     price: productPrice,
                     image: productImage
                 };
-                
+
                 addToCart(product);
             });
         }
     });
-    
+
     // Initialize cart on page load
     initCart();
+
+    // Products Filtering and Searching
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    const sortSelect = document.getElementById('sortSelect');
+    const clearFiltersBtn = document.getElementById('clearFilters');
+    const productsGrid = document.getElementById('productsGrid');
+    const productsCount = document.getElementById('productsCount');
+    const productCards = document.querySelectorAll('.product-card');
+    const categoryFilters = document.querySelectorAll('.category-filter');
+    const priceFilters = document.querySelectorAll('.price-filter');
+    const ratingFilters = document.querySelectorAll('.rating-filter');
+
+    // Current filter state
+    let filters = {
+        search: '',
+        categories: [],
+        priceRange: '',
+        rating: '',
+        sort: 'featured'
+    };
+
+    // Apply filters and update product display
+    function applyFilters() {
+        let visibleCount = 0;
+
+        productCards.forEach(card => {
+            const productName = card.querySelector('h3').textContent.toLowerCase();
+            const productDesc = card.querySelector('p').textContent.toLowerCase();
+            const productCategory = card.dataset.category;
+            const productPrice = parseFloat(card.dataset.price);
+            const productRating = parseFloat(card.dataset.rating);
+
+            // Search filter
+            const matchesSearch = filters.search === '' ||
+                productName.includes(filters.search) ||
+                productDesc.includes(filters.search);
+
+            // Category filter
+            const matchesCategory = filters.categories.length === 0 ||
+                filters.categories.includes(productCategory);
+
+            // Price range filter
+            let matchesPrice = true;
+            if (filters.priceRange) {
+                const [min, max] = filters.priceRange.split('-').map(val => val === '+' ? Infinity : parseFloat(val));
+                matchesPrice = productPrice >= min && (max === Infinity || productPrice <= max);
+            }
+
+            // Rating filter
+            let matchesRating = true;
+            if (filters.rating) {
+                const minRating = parseFloat(filters.rating);
+                matchesRating = productRating >= minRating;
+            }
+
+            // Show/hide product based on filters
+            const shouldShow = matchesSearch && matchesCategory && matchesPrice && matchesRating;
+            card.classList.toggle('hidden', !shouldShow);
+
+            if (shouldShow) {
+                visibleCount++;
+            }
+        });
+
+        // Update products count
+        productsCount.textContent = `Showing ${visibleCount} product${visibleCount !== 1 ? 's' : ''}`;
+
+        // Apply sorting
+        sortProducts(filters.sort);
+    }
+
+    // Sort products
+    function sortProducts(sortBy) {
+        const products = Array.from(productCards);
+        const visibleProducts = products.filter(product => !product.classList.contains('hidden'));
+
+        visibleProducts.sort((a, b) => {
+            const priceA = parseFloat(a.dataset.price);
+            const priceB = parseFloat(b.dataset.price);
+            const ratingA = parseFloat(a.dataset.rating);
+            const ratingB = parseFloat(b.dataset.rating);
+
+            switch (sortBy) {
+                case 'price-low':
+                    return priceA - priceB;
+                case 'price-high':
+                    return priceB - priceA;
+                case 'rating':
+                    return ratingB - ratingA;
+                case 'newest':
+                    // For demo purposes, we'll just use a random sort for "newest"
+                    return 0.5 - Math.random();
+                default: // featured
+                    return 0; // Keep original order
+            }
+        });
+
+        // Reorder products in the DOM
+        const parent = productsGrid;
+        visibleProducts.forEach(product => {
+            parent.appendChild(product);
+        });
+    }
+
+    // Event listeners
+    if (searchInput && searchButton) {
+        // Search functionality
+        searchButton.addEventListener('click', function () {
+            filters.search = searchInput.value.toLowerCase();
+            applyFilters();
+        });
+
+        searchInput.addEventListener('keyup', function (e) {
+            if (e.key === 'Enter') {
+                filters.search = searchInput.value.toLowerCase();
+                applyFilters();
+            }
+        });
+    }
+
+    if (sortSelect) {
+        // Sort functionality
+        sortSelect.addEventListener('change', function () {
+            filters.sort = this.value;
+            applyFilters();
+        });
+    }
+
+    // Category filters
+    categoryFilters.forEach(filter => {
+        filter.addEventListener('change', function () {
+            filters.categories = Array.from(categoryFilters)
+                .filter(f => f.checked)
+                .map(f => f.value);
+            applyFilters();
+        });
+    });
+
+    // Price range filters
+    priceFilters.forEach(filter => {
+        filter.addEventListener('change', function () {
+            filters.priceRange = this.checked ? this.value : '';
+            applyFilters();
+        });
+    });
+
+    // Rating filters
+    ratingFilters.forEach(filter => {
+        filter.addEventListener('change', function () {
+            filters.rating = this.checked ? this.value.replace('+', '') : '';
+            applyFilters();
+        });
+    });
+
+    // Clear all filters
+    if (clearFiltersBtn) {
+        clearFiltersBtn.addEventListener('click', function () {
+            // Reset all filter inputs
+            searchInput.value = '';
+            categoryFilters.forEach(f => f.checked = false);
+            priceFilters.forEach(f => f.checked = false);
+            ratingFilters.forEach(f => f.checked = false);
+            sortSelect.value = 'featured';
+
+            // Reset filter state
+            filters = {
+                search: '',
+                categories: [],
+                priceRange: '',
+                rating: '',
+                sort: 'featured'
+            };
+
+            applyFilters();
+        });
+    }
 });
